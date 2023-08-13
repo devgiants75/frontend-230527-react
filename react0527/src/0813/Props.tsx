@@ -5,7 +5,7 @@ import Props03 from './a_Props/Props03'
 import Props04 from './a_Props/index'
 import Props05 from './a_Props/Props05'
 
-export default function index() {
+export default function Props() {
   return (
     <>
       <Props01 />

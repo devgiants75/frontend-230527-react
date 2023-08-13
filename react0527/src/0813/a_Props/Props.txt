@@ -1,0 +1,20 @@
+Props
+
+1. prop을 전달하려면 HTML 속성과 마찬가지로 TSX(JSX)에 추가
+
+2. prop을 읽으려면 함수 내에서 객체 해체 문구인 
+- Human({ person, size })
+
+3. 기본값을 Human({ person, size = 100 })처럼 지정 가능
+- 누락된 & 정의되지 않은 prop에 사용
+
+4. <Human {...props} />처럼 TSX(JSX)의 스프레드 문법을 사용하여 모든 props를 전달 가능 (과도한 사용 X)
+
+5.
+<Card>
+  <Human />
+</Card> 와 같이 중첩된 TSX(JSX)는 
+Card 컴포넌트의 children prop로 나타냄.
+
+6. props는 고정된 값 X (시간에 따른 읽기 전용 스냅샷)
+- 매 렌더링마다 새 버전의 props를 받아옴.
