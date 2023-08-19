@@ -1,6 +1,7 @@
 import React from 'react'
 import RenderingList01 from './a_RenderingList/RenderingList01'
 import RenderingList02 from './a_RenderingList/RenderingList02'
+import Practice from './a_RenderingList/Practice'
 
 export default function RendeingList() {
   return (
@@ -8,6 +9,7 @@ export default function RendeingList() {
       <h1 style={{color: 'red'}}>RendeingList 리스트렌더링</h1>
       <RenderingList01 />
       <RenderingList02 />
+      <Practice />
     </>
   )
 }

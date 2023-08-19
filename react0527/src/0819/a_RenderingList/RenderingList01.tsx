@@ -34,8 +34,8 @@ const people: Person[] = [
 const animals = ['dog', 'cat', 'lion', 'tiger', 'hippo']
 
 const RenderingList01 = () => {
-  const listItems = people.map((people) => (
-    <li>{people.person}</li>
+  const listItems = people.map((people, index) => (
+    <li key={index}>{people.person}</li>
   ));
 
   const animalItems = animals.map(animal => 
