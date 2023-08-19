@@ -5,6 +5,12 @@ type Person = {
   imageId: string;
 }
 
+type Recipe = {
+  id: string;
+  name: string;
+  ingredients: string[];
+}
+
 //! RenderingList02.tsx에서 사용하는 데이터 
 export const people: Person[] = [
   {
