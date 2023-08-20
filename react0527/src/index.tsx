@@ -11,6 +11,10 @@ const root = ReactDOM.createRoot(
 root.render(
   // 입구 파일
   // npm run start를 사용해서 페이지를 구동할 때 화면에서 제일 먼저 찾는 파일
+  
+  // React.StrictMode
+  // 개발 중 각 컴포넌트의 함수를 두 번 호출
+  // 컴포넌트 함수를 두 번 호출 함으로써 순수성을 깨는 함수에서 예기치 못한 결괏값을 나타내도록 함.
   <React.StrictMode>
     {/* App태그가 화면에 렌더링되는 UI전체  */}
     <App />
