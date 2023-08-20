@@ -5,6 +5,11 @@ import React, { ReactElement } from 'react'
 // 렌더링하는 동안 방금 만든 변수와 객체를 변경
 // - 배열 사용
 
+//! 컴포넌트의 순수성
+// - 렌더링하기 전에 이미 존재하는 객체, 변수 변경 X
+// - 같은 입력이 주어지면 컴포넌트는 항상 동일한 JSX를 반환 !
+// - 변경될 값을 컴포넌트에 지정하고 싶은 경우 이벤트 핸들러를 사용
+
 interface CupProps {
   guest: number;
 }

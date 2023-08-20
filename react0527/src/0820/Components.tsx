@@ -2,6 +2,7 @@ import React from 'react'
 import Components01 from './a_Components/Components01'
 import Components02 from './a_Components/Components02'
 import Components03 from './a_Components/Components03'
+import Practice01 from './a_Components/Practice01'
 
 export default function Components() {
   return (
@@ -11,6 +12,7 @@ export default function Components() {
       <Components01 />
       <Components02 />
       <Components03 />
+      <Practice01 />
     </>
   )
 }
