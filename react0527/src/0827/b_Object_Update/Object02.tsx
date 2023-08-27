@@ -14,64 +14,82 @@ export default function Object02() {
     email: 'devgiants75@qwe.com'
   });
 
+  //? 여러 필드에 단일 이벤트 핸들러 사용
+  // 객체 정의 내에서 []를 사용하여 동적 이름으로 속성을 지정 가능
+  // e.target.name
+  // : <input> 태그 DOM 요소에 주어진 name속성을 참조
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setPerson({
+      ...person,
+      [e.target.name]: e.target.value
+    })
+  }
+
   // 객체 spread 구문인 ...을 사용하면
   // 각 프로퍼티를 따로 복사할 필요가 X
-  function handleFirstNameChange(e: ChangeEvent<HTMLInputElement>) {
-    setPerson({
-      // firstName: e.target.value,
-      // lastName: person.lastName,
-      // email: person.email
-      ...person, // 이전 필드를 복사
-      firstName: e.target.value
-    })
-  }
+  // function handleFirstNameChange(e: ChangeEvent<HTMLInputElement>) {
+  //   setPerson({
+  //     // firstName: e.target.value,
+  //     // lastName: person.lastName,
+  //     // email: person.email
+  //     ...person, // 이전 필드를 복사
+  //     firstName: e.target.value
+  //   })
+  // }
 
-  function handleLastNameChange(e: ChangeEvent<HTMLInputElement>) {
-    setPerson({
-      // firstName: person.firstName,
-      // lastName: e.target.value,
-      // email: person.email
-      ...person,
-      lastName: e.target.value
-    })
-  }
+  // function handleLastNameChange(e: ChangeEvent<HTMLInputElement>) {
+  //   setPerson({
+  //     // firstName: person.firstName,
+  //     // lastName: e.target.value,
+  //     // email: person.email
+  //     ...person,
+  //     lastName: e.target.value
+  //   })
+  // }
 
-  function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
-    setPerson({
-      // firstName: person.firstName,
-      // lastName: person.lastName,
-      // email: e.target.value
-      ...person,
-      email: e.target.value
-    })
-  }
+  // function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
+  //   setPerson({
+  //     // firstName: person.firstName,
+  //     // lastName: person.lastName,
+  //     // email: e.target.value
+  //     ...person,
+  //     email: e.target.value
+  //   })
+  // }
 
   return (
     <>
       <label>
         First name:
         <input
+          name='firstName'
           type="text"
           value={person.firstName}
-          onChange={handleFirstNameChange}
+          // onChange={handleFirstNameChange}
+          onChange={handleChange}
         />
       </label>
       <br />
       <label>
         Last name:
         <input
+          name='lastName'
           type="text"
           value={person.lastName}
-          onChange={handleLastNameChange}
+          // onChange={handleLastNameChange}
+          onChange={handleChange}
         />
       </label>
       <br />
       <label>
         Email: 
         <input
+          name='email'
           type="email"
           value={person.email}
-          onChange={handleEmailChange}
+          // onChange={handleEmailChange}
+          onChange={handleChange}
         />
       </label>
       <p>

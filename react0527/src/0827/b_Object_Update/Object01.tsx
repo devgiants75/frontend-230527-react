@@ -53,7 +53,7 @@ export default function Object01() {
         backgroundColor: 'red',
         borderRadius: '50%',
         // 'postion' 상태를 기반으로 점의 위치를 변환
-        transform: `translate(${position.x}px, ${position.y}px)`,
+        transform: `translate(${position.x - 10}px, ${position.y - 10}px)`,
         width: 20,
         height: 20,
       }} />
