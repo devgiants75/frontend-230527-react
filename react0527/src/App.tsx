@@ -9,6 +9,8 @@ import Event from './0820/Event';
 import State from './0826/State';
 import RenderingCommit from './0826/RenderingCommit';
 import StateUpdate from './0826/StateUpdate';
+import StateUpdates from './0827/StateUpdates';
+import UpdatingObjects from './0827/UpdatingObjects';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -23,6 +25,8 @@ function App() {
       <State />
       <RenderingCommit />
       <StateUpdate />
+      <StateUpdates />
+      <UpdatingObjects />
     </>
   );
 }
