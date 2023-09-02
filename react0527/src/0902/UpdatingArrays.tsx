@@ -5,6 +5,8 @@ import Array03 from './a_Array_Update/Array03';
 import Array04 from './a_Array_Update/Array04';
 import Array05 from './a_Array_Update/Array05';
 import Array06 from './a_Array_Update/Array06';
+import Practice01 from './a_Array_Update/Practice01';
+import Practice from './a_Array_Update/Practice'
 
 export default function UpdatingArrays() {
   return (
@@ -16,6 +18,8 @@ export default function UpdatingArrays() {
       <Array04 />
       <Array05 />
       <Array06 />
+      <Practice01 />
+      <Practice />
     </>
   )
 }

@@ -41,6 +41,43 @@ export default function Array06() {
   const [myList, setMyList] = useState<List[]>(initialList);
   const [yourList, setYourList] = useState<List[]>(initialList);
 
+  // 방금 생성한(변경한) 객체만을 변경해야 한다.
+  
+  // 새로운 데이터 변경이 일어날 경우 상태와 연관되어 있다면
+  // 그 객체를 따로 생성하여 변경해야 한다.
+  function handleToggleMyList(listId: number, nextSeen: boolean) {
+    // const myNextList = [...myList];
+    // const list = myNextList.find(a => a.id === listId);
+    // if (list) {
+    //   list.seen = nextSeen; 
+    //   기존 항목을 변경 시키기 때문에 yourList에도 영향을 미침
+    // }
+    // setMyList(myNextList);
+    setMyList(myList.map(list => {
+      if (list.id === listId) {
+        return {...list, seen: nextSeen };
+      } else {
+        return list;
+      }
+    }));
+  }
+
+  function handleToggleYourList(listId: number, nextSeen: boolean) {
+    // const yourNextList = [...yourList];
+    // const list = yourNextList.find(a => a.id === listId);
+    // if (list) {
+    //   list.seen = nextSeen; // 기존항목을 변형
+    // }
+    // setYourList(yourNextList);
+    setYourList(yourList.map(list => {
+      if (list.id === listId) {
+        return {...list, seen: nextSeen};
+      } else {
+        return list;
+      }
+    }))
+  }
+
   return (
     <>
       <h2>Bucket List</h2>

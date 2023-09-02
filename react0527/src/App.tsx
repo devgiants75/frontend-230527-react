@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+
+import { Routes, Route } from 'react-router-dom';
+
 import Components from './0812'
 import Props from './0813/Props'
 import Rendering from './0813/Rendering'
@@ -12,11 +15,15 @@ import StateUpdate from './0826/StateUpdate';
 import StateUpdates from './0827/StateUpdates';
 import UpdatingObjects from './0827/UpdatingObjects';
 import UpdatingArrays from './0902/UpdatingArrays';
+import Router from './0902/Router';
+import Router01 from './0902/b_Router/Router01';
+import Router02 from './0902/b_Router/Router02';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
   return (
     <>
+      {/* Routes 내에 존재하지 않는 컴포넌트는 항상 렌더링 */}
       <Components />
       <Props />
       <Rendering />
@@ -27,8 +34,13 @@ function App() {
       <RenderingCommit />
       <StateUpdate />
       <StateUpdates />
-      <UpdatingObjects />
-      <UpdatingArrays />
+      {/* 라우터 사용으로 페이지 연결 */}
+      {/* <Route path='주소규칙' element={<보여주고 싶은 컴포넌트 />}/> */}
+      <Routes>
+        <Route path='/updatingObjects' element={<UpdatingObjects />} />
+        <Route path='/updatingArrays' element={<UpdatingArrays />} />
+        <Route path='/router' element={<Router />}/>
+      </Routes>
     </>
   );
 }
