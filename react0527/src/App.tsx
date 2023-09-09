@@ -16,8 +16,7 @@ import StateUpdates from './0827/StateUpdates';
 import UpdatingObjects from './0827/UpdatingObjects';
 import UpdatingArrays from './0902/UpdatingArrays';
 import Router from './0902/Router';
-import Router01 from './0902/b_Router/Router01';
-import Router02 from './0902/b_Router/Router02';
+import ManageState from './0909/ManageState';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -40,6 +39,7 @@ function App() {
         <Route path='/updatingObjects' element={<UpdatingObjects />} />
         <Route path='/updatingArrays' element={<UpdatingArrays />} />
         <Route path='/router' element={<Router />}/>
+        <Route path='/manageState' element={<ManageState />} />
       </Routes>
     </>
   );
