@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,8 +17,11 @@ root.render(
   // 개발 중 각 컴포넌트의 함수를 두 번 호출
   // 컴포넌트 함수를 두 번 호출 함으로써 순수성을 깨는 함수에서 예기치 못한 결괏값을 나타내도록 함.
   <React.StrictMode>
+    {/* 라우터 적용을 위한 컴포넌트 */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
     {/* App태그가 화면에 렌더링되는 UI전체  */}
-    <App />
   </React.StrictMode>
 );
 
