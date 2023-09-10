@@ -51,7 +51,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }: PlaceTreeProps) {
           onComplete(parentId, id);
         }}
       >
-        완료
+        Complete
       </button>
       {/* 자식 ID들이 있을 경우, 해당 자식들에 대한 PlaceTree를 렌더링 */}
       {/* 
