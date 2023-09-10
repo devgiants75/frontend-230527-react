@@ -4,7 +4,12 @@ interface Place {
   childIds: number[];
 }
 
-export const initialTravelPlan: Record<number, Place> = {
+// 모든 장소들을 그들의 ID를 기준으로 저장하는 인터페이스
+interface PlacesById {
+  [id: number]: Place;
+}
+
+export const initialTravelPlan: PlacesById = {
   0: {
     id: 0,
     title: '(Root)',
@@ -251,3 +256,4 @@ export const initialTravelPlan: Record<number, Place> = {
     childIds: []
   }
 };
+
