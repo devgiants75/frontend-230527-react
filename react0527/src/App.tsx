@@ -19,29 +19,32 @@ import Router from './0902/Router';
 import ManageState from './0909/ManageState';
 import StateStructure from './0909/StateStructure';
 import SharingState from './0910/SharingState';
+import Abcde from './Abcde';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
   return (
     <>
       {/* Routes 내에 존재하지 않는 컴포넌트는 항상 렌더링 */}
-      <Components />
-      <Props />
-      <Rendering />
-      <RenderingLists />
-      <ComponentsPure />
-      <Event />
-      <State />
-      <RenderingCommit />
-      <StateUpdate />
-      <StateUpdates />
+      <Abcde />
       {/* 라우터 사용으로 페이지 연결 */}
       {/* <Route path='주소규칙' element={<보여주고 싶은 컴포넌트 />}/> */}
       <Routes>
+        <Route path='/components' element={<Components />} />
+        <Route path='/props' element={<Props />} />
+        <Route path='/rendering' element={<Rendering />} />
+        <Route path='/renderingLists' element={<RenderingLists />} />
+        <Route path='/componentsPure' element={<ComponentsPure />} />
+        <Route path='/event' element={<Event />} />
+        <Route path='/state' element={<State />} />
+        <Route path='/renderingCommit' element={<RenderingCommit />} />
+        <Route path='/stateUpdate' element={<StateUpdate />} />
+        <Route path='/stateUpdates' element={<StateUpdates />} />
         <Route path='/updatingObjects' element={<UpdatingObjects />} />
         <Route path='/updatingArrays' element={<UpdatingArrays />} />
         <Route path='/router' element={<Router />}/>
         <Route path='/manageState' element={<ManageState />} />
+        
         <Route path='/stateStructure' element={<StateStructure />} />
         <Route path='/sharingState' element={<SharingState />}/>
       </Routes>
