@@ -20,6 +20,7 @@ import ManageState from './0909/ManageState';
 import StateStructure from './0909/StateStructure';
 import SharingState from './0910/SharingState';
 import Abcde from './Abcde';
+import PreserveReset from './0910/PreserveReset';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <>
       {/* Routes 내에 존재하지 않는 컴포넌트는 항상 렌더링 */}
       <Abcde />
+      
       {/* 라우터 사용으로 페이지 연결 */}
       {/* <Route path='주소규칙' element={<보여주고 싶은 컴포넌트 />}/> */}
       <Routes>
@@ -44,9 +46,10 @@ function App() {
         <Route path='/updatingArrays' element={<UpdatingArrays />} />
         <Route path='/router' element={<Router />}/>
         <Route path='/manageState' element={<ManageState />} />
-        
+
         <Route path='/stateStructure' element={<StateStructure />} />
         <Route path='/sharingState' element={<SharingState />}/>
+        <Route path='/preserveReset' element={<PreserveReset />}/>
       </Routes>
     </>
   );

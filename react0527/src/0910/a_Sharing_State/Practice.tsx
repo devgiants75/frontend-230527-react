@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react'
-import { foods } from './Data';
+import { filterItems, foods } from './Data';
 
-// query 상태를 Practice 컴포너트로 올린 뒤 
+// query 상태를 Practice 컴포넌트로 올린 뒤 
 // filterItems(foods, query)를 호출하여 필터링된 목록을 가져온 다음
 // 해당 목록을 List에 전달
 
@@ -15,17 +15,16 @@ type ListProps = {
   items: Food[];
 }
 
-function SearchBar() {
-  const [query, setQuery] = useState<string>('');
+type SearchBarProps = {
+  query: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setQuery(e.target.value);
-  }
-
+function SearchBar({ query, onChange }: SearchBarProps) {
   return (
     <label>
       Search: {' '}
-      <input type="text" value={query} onChange={handleChange} />
+      <input type="text" value={query} onChange={onChange} />
     </label>
   )
 }
@@ -46,17 +45,22 @@ function List({ items }: ListProps) {
 }
 
 // 목록 필터링
-
 export default function Practice() {
+  const [query, setQuery] = useState<string>('');
+  const results = filterItems(foods, query);
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setQuery(e.target.value);
+  }
 
   return (
     <>
       <br />
       <h2>0910 Practice</h2>
-      <SearchBar />
+      <SearchBar query={query} onChange={handleChange}/>
       {/* horizontal rule - 가로로 선을 긋는 태그*/}
       <hr /> 
-      <List items={foods}/>
+      <List items={results}/>
     </>
   )
 }
