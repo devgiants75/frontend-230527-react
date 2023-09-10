@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+/* 0909 수업 - ManageState02 */
+.background {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+}
+
+.background--active {
+  background-color: #a6b5ff;
+}
+
+.picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.picture--active {
+  border: 5px solid #a6b5ff;
+}
