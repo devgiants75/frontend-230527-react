@@ -21,6 +21,7 @@ import StateStructure from './0909/StateStructure';
 import SharingState from './0910/SharingState';
 import Abcde from './Abcde';
 import PreserveReset from './0910/PreserveReset';
+import Reducer from './0916/Reducer';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path='/stateStructure' element={<StateStructure />} />
         <Route path='/sharingState' element={<SharingState />}/>
         <Route path='/preserveReset' element={<PreserveReset />}/>
+        <Route path='/reducer' element={<Reducer />}/>
       </Routes>
     </>
   );
