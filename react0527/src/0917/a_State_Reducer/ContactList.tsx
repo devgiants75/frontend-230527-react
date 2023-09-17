@@ -1,16 +1,11 @@
 import React from 'react'
-
-// 연락처 타입 정의
-type Contact = {
-  id: number;
-  name: string;
-}
+import { Contact, DispatchType} from './type';
 
 // ContactList의 props 타입을 정의
 type ContactListProps = {
   contacts: Contact[];
   selectedId: number;
-  dispatch: (action: { type: string; contactId?: number}) => void;
+  dispatch: DispatchType;
 }
 
 export default function ContactList({ contacts, selectedId, dispatch}: ContactListProps) {

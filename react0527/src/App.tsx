@@ -23,6 +23,7 @@ import Abcde from './Abcde';
 import PreserveReset from './0910/PreserveReset';
 import Reducer from './0916/Reducer';
 import StateReducer from './0917/StateReducer';
+import Context from './0917/Context';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route path='/preserveReset' element={<PreserveReset />}/>
         <Route path='/reducer' element={<Reducer />}/>
         <Route path='/stateReducer' element={<StateReducer />}/>
+        <Route path='/context' element={<Context />}/>
       </Routes>
     </>
   );

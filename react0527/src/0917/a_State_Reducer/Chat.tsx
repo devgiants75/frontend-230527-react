@@ -1,17 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Contact, DispatchType} from './type';
 
 // 연락처 타입 정의
-type Contact = {
-  id: number;
-  name: string;
-  email: string;
-}
 
 // Chat 컴포넌트의 props 타입 정의
 type ChatProps = {
   contact: Contact;
   message: string;
-  dispatch: (action: { type: string; message?: string}) => void;
+  dispatch: DispatchType;
 }
 
 export default function Chat({ contact, message, dispatch}: ChatProps) {
