@@ -76,7 +76,15 @@
   background: #ffffd8;
 }
 
+/* 0917 수업 - Context02 Folder */
+.section {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
 .fancy {
-  border: 5px solid gold;
-  color: #ff6767;
+  border: 4px dashed pink;
+  color: tomato;
 }
