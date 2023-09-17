@@ -15,6 +15,7 @@ export default function PreserveReset() {
       <br />
       <PreserveReset02 />
       <br />
+      <h2>useState를 사용한 상태관리</h2>
       <PreserveReset03 />
     </div>
   )
