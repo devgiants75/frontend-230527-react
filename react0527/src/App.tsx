@@ -27,6 +27,8 @@ import Context from './0917/Context';
 import Ref from './0923/Ref';
 import DomRef from './0923/DomRef';
 import Effect from './0924/Effect';
+import StyledComponent from './0924/StyledComponent';
+import Index from './TodoList/Index';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -62,6 +64,8 @@ function App() {
         <Route path='/ref' element={<Ref />}/>
         <Route path='/domRef' element={<DomRef />}/>
         <Route path='/effect' element={<Effect />}/>
+        <Route path='/styledComponent' element={<StyledComponent />}/>
+        <Route path='/todoList' element={<Index />}/>
       </Routes>
     </>
   );
