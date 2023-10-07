@@ -31,6 +31,8 @@ import StyledComponent from './0924/StyledComponent';
 import Review from './1007/Review';
 
 import Index from './TodoList/Index';
+import CustomHook from './1007/CustomHook';
+import CustomCounter from './1007/b_customHook/CustomCounter';
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -67,8 +69,11 @@ function App() {
         <Route path='/domRef' element={<DomRef />}/>
         <Route path='/effect' element={<Effect />}/>
         <Route path='/styledComponent' element={<StyledComponent />}/>
-        <Route path='/todoList' element={<Index />}/>
         <Route path='/review' element={<Review />}/>
+        <Route path='/customHook' element={<CustomHook />}/>
+        
+        
+        <Route path='/todoList' element={<Index />}/>
       </Routes>
     </>
   );
