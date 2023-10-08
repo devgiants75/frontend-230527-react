@@ -5,6 +5,8 @@ import TodoHead from './components/TodoHead';
 import TodoList from './components/TodoList';
 import TodoCreate from './components/TodoCreate';
 
+import { TodoProvider } from './contexts/TodoContext';
+
 // 페이지 전역적으로 디자인을 사용할 경우
 // createGlobalStyle을 사용
 const GlobalStyle = createGlobalStyle`
@@ -16,12 +18,14 @@ const GlobalStyle = createGlobalStyle`
 export default function Index() {
   return (
     <>
-      <GlobalStyle />
-      <TodoTemplate>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate />
-      </TodoTemplate>
+      <TodoProvider>
+        <GlobalStyle />
+        <TodoTemplate>
+          <TodoHead />
+          <TodoList />
+          <TodoCreate />
+        </TodoTemplate>
+      </TodoProvider>
     </>
   )
 }

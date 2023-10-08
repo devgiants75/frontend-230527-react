@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useTodoState } from '../contexts/TodoContext';
 
 // TodoHeadBlock 컴포넌트 정의
 const TodoHeadBlock = styled.div`
@@ -33,11 +34,30 @@ const TodoHeadBlock = styled.div`
 // TodoHead 컴포넌트 정의
 // 단순히 UI를 렌더링
 export default function TodoHead() {
+  // useTodoState hook을 사용하여 todos 상태를 가져옴.
+  const todos = useTodoState();
+  // todos 배열에서 완료되지 않은(undone) 할 일들만 필터링하여 undoneTasks에 저장
+  const undoneTasks = todos.filter((todo: {done: boolean}) => !todo.done);
+
+  // 오늘 날짜에 대한 Date 객체 생성
+  const today = new Date();
+  // 날짜를 '2023년 10월 08일'형태의 문자열로 포맷팅
+  const dateString = today.toLocaleDateString('ko-KR', {
+    year: 'numeric', // 숫자 표시
+    month: 'long', // 월을 긴 형태의 이름으로 표시(문자열로 표시)
+    day: 'numeric' // 숫자 표시
+  });
+  // 요일을 '수요일'형태의 문자열로 포맷팅
+  const dayName = today.toLocaleDateString('ko-KR', {
+    weekday: 'long' // '수요일' 형태의 문자열로 포맷팅
+  });
+
   return (
     <TodoHeadBlock>
-      <h1>2023년 10월 07일</h1>
-      <div className='day'>토요일</div>
-      <div className='tasks-left'>할 일 2개 남음</div>
+      {/* Date의 toLocaleString 함수를 사용 */}
+      <h1>{dateString}</h1>
+      <div className='day'>{dayName}</div>
+      <div className='tasks-left'>할 일 {undoneTasks.length}개 남음</div>
     </TodoHeadBlock>
   )
 }

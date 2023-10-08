@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+import { useTodoDispatch } from '../contexts/TodoContext';
 
 // Remove 컴포넌트 스타일링
 const Remove = styled.div`
@@ -68,17 +69,26 @@ const Text = styled.div<{ done: boolean }>`
 
 // props 타입 지정
 interface TodoItemProps {
-  id?: number;
+  id: number;
   done: boolean;
   text: string;
 }
 
 // TodoItem 컴포넌트 지정
-export default function TodoItem({ id, done, text }: TodoItemProps) {
+function TodoItem({ id, done, text }: TodoItemProps) {
+  // Todo의 상태를 변경할 dispatch 함수를 가져옴.
+  const dispatch = useTodoDispatch();
+
+  // 완료 상태를 토글하는 함수
+  const onToggle = () => dispatch({ type: 'TOGGLE', id });
+
+  // 할 일 항목을 제거하는 함수
+  const onRemove = () => dispatch({ type: 'REMOVE', id });
+
   return (
     <TodoItemBlock>
       {/* done의 값에 따라 체크 표시를 컨트롤 */}
-      <CheckCircle done={done}>
+      <CheckCircle done={done} onClick={onToggle}>
         {done && <MdDone />}
       </CheckCircle>
 
@@ -86,10 +96,15 @@ export default function TodoItem({ id, done, text }: TodoItemProps) {
       <Text done={done}>{text}</Text>
 
       {/* 삭제 아이콘 표시 */}
-      <Remove>
+      <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>
 
     </TodoItemBlock>
   )
 }
+
+// 맨 마지막 내보내기 부분에 React.memo를 사용하여 해당 컴포넌트를 묶을 경우에
+// > 다른 항목이 업데이트 될 때, 불필요한 리렌더링을 방지
+// > 성능 최적화
+export default React.memo(TodoItem);

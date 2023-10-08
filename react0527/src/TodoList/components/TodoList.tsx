@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import TodoItem from './TodoItem';
+import { useTodoState } from '../contexts/TodoContext';
 
 // TodoListBlock 컴포넌트 지정
 const TodoListBlock = styled.div`
@@ -11,14 +12,30 @@ const TodoListBlock = styled.div`
   /* background: gray; */
 `;
 
+// Todo 타입 정의
+interface Todo {
+  id: number;
+  text: string;
+  done: boolean;
+}
+
 // TodoList 컴포넌트 지정
 export default function TodoList() {
+  // useTodoState(커스텀) 훅을 사용하여, todos 상태를 가져옴.
+  const todos: Todo[] = useTodoState();
+
   return (
     <TodoListBlock>
-      <TodoItem text='프로젝트 생성하기' done={true} />
-      <TodoItem text='컴포넌트 스타일링하기' done={true} />
-      <TodoItem text='Context 만들기' done={false} />
-      <TodoItem text='기능 구현하기' done={false} />
+      {/* todos 배열을 map 함수를 사용하여 여러 TodoItem 컴포넌트로 변환 */}
+      {todos.map(todo => (
+        // 각 TodoItem 컴포넌트에는 key, id, text, done 프로퍼티를 전달
+        <TodoItem 
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          done={todo.done}
+        />
+      ))}
     </TodoListBlock>
   );
 

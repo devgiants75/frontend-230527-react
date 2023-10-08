@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, createContext, useContext, useReducer } from 'react';
+import React, { Dispatch, ReactNode, createContext, useContext, useReducer, useRef } from 'react';
 
 //! useReducer를 사용하여 상태를 관리하는 TodoProvider 컴포넌트
 
@@ -19,22 +19,22 @@ type TodoAction =
 const initialTodos: Todo[] = [
   {
     id: 1,
-    text: '프로젝트 생성하기',
+    text: '프로젝트 생성',
     done: true
   },
   {
     id: 2,
-    text: '컴포넌트 스타일링하기',
+    text: '컴포넌트 스타일링',
     done: true
   },
   {
     id: 3,
-    text: 'Context 만들기',
+    text: 'Context 생성',
     done: false
   },
   {
     id: 4,
-    text: '기능 구현하기',
+    text: '기능 구현',
     done: false
   },
 ];
@@ -61,6 +61,8 @@ function todoReducer(state: Todo[], action: TodoAction): Todo[] {
 // 컨텍스트 생성 (상태와 디스패치 함수를 담기 위한)
 const TodoStateContext = createContext<Todo[] | undefined>(undefined);
 const TodoDispatchContext = createContext<Dispatch<TodoAction> | undefined>(undefined);
+// nextId 값을 위한 Context
+const TodoNextIdContext = createContext<React.MutableRefObject<number> | undefined>(undefined);
 
 interface TodoProviderProps {
   children: ReactNode;
@@ -69,25 +71,37 @@ interface TodoProviderProps {
 // 컴포넌트 정의 (자식 컴포넌트들에게 컨텍스트 값을 제공)
 export function TodoProvider({ children}: TodoProviderProps) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
+  const nextId = useRef(5); // 다음 todo 항목의 id를 관리하기 위한 ref를 생성
 
   return (
     <TodoStateContext.Provider value={state}>
       <TodoDispatchContext.Provider value={dispatch}>
-        {children}
+        <TodoNextIdContext.Provider value={nextId}>
+          {children}
+        </TodoNextIdContext.Provider>
       </TodoDispatchContext.Provider>
     </TodoStateContext.Provider>
   )
 }
 
-// 커스텀 훅 (Todo 상태와 디스패치 함수를 반환)
+//? 커스텀 훅 (Todo 상태와 디스패치 함수를 반환)
 export function useTodoState() {
   const state = useContext(TodoStateContext);
   if (!state) throw new Error('TodoProvider not found');
   return state;
 }
 
+//?
 export function useTodoDispatch() {
   const dispatch = useContext(TodoDispatchContext);
   if (!dispatch) throw new Error('TodoProvider not found');
   return dispatch;
+}
+
+//? 
+export function useTodoNextId() {
+  // useContext 훅을 사용해 nextId ref를 가져옴
+  const nextId = useContext(TodoNextIdContext); 
+  if (!nextId) throw new Error('TodoProvider not found');
+  return nextId;
 }

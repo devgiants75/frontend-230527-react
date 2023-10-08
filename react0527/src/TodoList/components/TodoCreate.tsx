@@ -111,16 +111,32 @@ const Input = styled.input`
 export default function TodoCreate() {
   // useState로 open 상태 관리 (초기값 false)
   const [open, setOpen] = useState<boolean>(false);
+  // input 값의 상태 관리
+  const [value, setValue] = useState<string>('');
+
+  // 할 일 아이템의 상태를 변경하는 dispatch 함수를 가져옴.
+
+  // 다음 할 일 아이템의 id 값을 가져옴.
 
   // open 상태를 토글하는 함수
   const onToggle = () => setOpen(prev => !prev);
+  // 입력값을 변경하는 함수를 정의
+  const onChange = ;
+
+  // 폼 제출 핸들러 함수를 정의
+  const onSubmit = ;
 
   return (
     <>
       {open && (
         <InsertFormPositioner>
-          <InsertForm>
-            <Input autoFocus placeholder='할 일 입력 후, Enter를 누르세요.' />
+          <InsertForm onSubmit={onSubmit}>
+            <Input
+              autoFocus
+              placeholder="할 일 입력 후, Enter를 누르세요."
+              onChange={onChange}
+              value={value}
+            />
           </InsertForm>
         </InsertFormPositioner>
       )}
@@ -130,7 +146,6 @@ export default function TodoCreate() {
       <CircleButton onClick={onToggle} open={open}>
         <MdAdd />
       </CircleButton>
-
     </>
-  )
+  );
 }
