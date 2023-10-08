@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, createContext, useContext, useReducer } from 'react'
+import React, { Dispatch, ReactNode, createContext, useContext, useReducer } from 'react';
 
 // useContext를 사용한 간단한 전역 상태 관리 
 
