@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md'
+import { useTodoDispatch, useTodoNextId } from '../contexts/TodoContext';
 
 // 새로운 할일을 등록 할 수 있는 컴포넌트 생성
 
@@ -108,23 +109,39 @@ const Input = styled.input`
   box-sizing: border-box;
 `;
 
-export default function TodoCreate() {
+function TodoCreate() {
   // useState로 open 상태 관리 (초기값 false)
   const [open, setOpen] = useState<boolean>(false);
   // input 값의 상태 관리
   const [value, setValue] = useState<string>('');
 
   // 할 일 아이템의 상태를 변경하는 dispatch 함수를 가져옴.
-
+  const dispatch = useTodoDispatch();
   // 다음 할 일 아이템의 id 값을 가져옴.
+  const nextId = useTodoNextId();
 
   // open 상태를 토글하는 함수
   const onToggle = () => setOpen(prev => !prev);
   // 입력값을 변경하는 함수를 정의
-  const onChange = ;
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
   // 폼 제출 핸들러 함수를 정의
-  const onSubmit = ;
+  const onSubmit = (e: React.FormEvent) => {
+    // 폼 제출 시 페이지 리로딩을 방지
+    e.preventDefault();
+    // CREATE 액션을 디스패치하여 새로운 할 일 아이템을 추가
+    dispatch({
+      type: 'CREATE',
+      todo: {
+        id: nextId.current,
+        text: value,
+        done: false
+      }
+    });
+    setValue(''); // input 초기화
+    setOpen(false);
+    nextId.current += 1;
+  };
 
   return (
     <>
@@ -149,3 +166,5 @@ export default function TodoCreate() {
     </>
   );
 }
+
+export default React.memo(TodoCreate);
