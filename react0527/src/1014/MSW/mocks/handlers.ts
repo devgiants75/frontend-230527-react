@@ -41,7 +41,8 @@ export const handlers = [
 
     const newPost: Post = {
       id: (posts.length + 1).toString(),
-
+      title: req.body.title,
+      content: req.body.content
     }
     posts.push(newPost);
 
