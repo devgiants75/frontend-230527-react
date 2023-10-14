@@ -33,6 +33,7 @@ import Review from "./1007/Review";
 import Index from "./TodoList/Index";
 import CustomHook from "./1007/CustomHook";
 import Api from "./1014/Api";
+import Msw from "./1014/Msw";
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Route path="/review" element={<Review />} />
         <Route path="/customHook" element={<CustomHook />} />
         <Route path="/api" element={<Api />} />
+        <Route path="/msw" element={<Msw />} />
 
         <Route path="/todoList" element={<Index />} />
       </Routes>
