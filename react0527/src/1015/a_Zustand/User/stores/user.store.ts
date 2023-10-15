@@ -7,7 +7,7 @@ type UserState = {
   addUser: (name: string) => void;
   removeUser: (id: number) => void;
   // 사용자 정보 수정
-  updateUser: (id: string, name: string) => void;
+  updateUser: (id: number, name: string) => void;
 }
 
 export const useUserStore = create<UserState>((set) => ({
@@ -30,7 +30,7 @@ export const useUserStore = create<UserState>((set) => ({
     users: state.users.filter((user) => user.id !== id)
   })),
   updateUser: (id, name) => set((state) => ({
-
+    users: state.users.map((user) => user.id === id ? { ...user, name }: user)
   })),
 }));
 
