@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
 export default function Index() {
   return (
     <>
+      {/* 
+        https://open.kakao.com/o/swXx5Qnf
+      */}
       <TodoProvider>
         <GlobalStyle />
         <TodoTemplate>
