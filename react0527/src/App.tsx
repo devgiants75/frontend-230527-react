@@ -34,6 +34,7 @@ import Index from "./TodoList/Index";
 import CustomHook from "./1007/CustomHook";
 import Api from "./1014/Api";
 import Msw from "./1014/Msw";
+import Zustand from "./1015/Zustand";
 
 // App함수가 화면에 렌더링되는 UI전체
 function App() {
@@ -74,6 +75,7 @@ function App() {
         <Route path="/customHook" element={<CustomHook />} />
         <Route path="/api" element={<Api />} />
         <Route path="/msw" element={<Msw />} />
+        <Route path="/zustand" element={<Zustand />} />
 
         <Route path="/todoList" element={<Index />} />
       </Routes>
