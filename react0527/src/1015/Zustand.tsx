@@ -1,6 +1,7 @@
 import React from 'react'
 import Zustand01 from './a_Zustand/Zustand01'
 import Zustand02 from './a_Zustand/Zustand02'
+import Index from './a_Zustand/User/Index'
 
 export default function Zustand() {
   return (
@@ -12,6 +13,9 @@ export default function Zustand() {
       <hr />
       <h2>API 상태관리</h2>
       <Zustand02 />
+      <hr />
+      <h2>사용자 상태 관리 실습</h2>
+      <Index />
     </>
   )
 }
