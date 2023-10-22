@@ -5,6 +5,7 @@ import React from 'react'
 // 1. 자기소개서 작성 
 
 //! 개인 포트폴리오 준비
+//? 메인 테마(글꼴, 색상)
 
 // 참고할 개인 포트폴리오
 // https://hjban-dev.github.io/portfolio/about

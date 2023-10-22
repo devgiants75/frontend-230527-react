@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import MainPage from './Pages/MainPage';
 
 /*
 src 내부 폴더 구조 (프로젝트 구성)
@@ -21,9 +22,9 @@ src 내부 폴더 구조 (프로젝트 구성)
 
 function App() {
   return (
-    <div className="App">
-      포트폴리오
-    </div>
+    <>
+      <MainPage />
+    </>
   );
 }
 
